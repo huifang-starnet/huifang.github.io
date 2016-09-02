@@ -1,6 +1,6 @@
 # huifang.github.io
 ##虚拟表单的形式提交post请求
-<
+
 function post(URL, PARAMS) {      
     var temp = document.createElement("form");      
     temp.action = URL;      
@@ -17,4 +17,4 @@ function post(URL, PARAMS) {
     temp.submit();      
     return temp;      
 }      
->
+
