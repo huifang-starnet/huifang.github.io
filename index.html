@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Huifang.GitHub.io : 代码笔记">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Huifang.GitHub.io</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/huifang-starnet/huifang.github.io">View on GitHub</a>
+
+          <h1 id="project_title">Huifang.GitHub.io</h1>
+          <h2 id="project_tagline">代码笔记</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/huifang-starnet/huifang.github.io/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/huifang-starnet/huifang.github.io/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="模拟post进行url请求" class="anchor" href="#%E6%A8%A1%E6%8B%9Fpost%E8%BF%9B%E8%A1%8Curl%E8%AF%B7%E6%B1%82" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>模拟post进行url请求</h1>
+
+<p><code>/**</code>
+     <code>* 模拟post进行url请求</code>
+     <code>* @param string $url</code>
+     <code>* @param string $param</code>
+     <code>*/</code>
+    <code>function request_post($url = '', $param = '') {</code>
+        <code>if (empty($url) || empty($param)) {</code>
+            <code>return false;</code>
+        <code>}</code></p>
+
+<pre><code>    `$postUrl = $url;`
+    `$curlPost = $param;`
+    `$ch = curl_init();//初始化curl`
+    `curl_setopt($ch, CURLOPT_URL,$postUrl);//抓取指定网页`
+    `curl_setopt($ch, CURLOPT_HEADER, 0);//设置header`
+    `curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上`
+    `curl_setopt($ch, CURLOPT_POST, 1);//post提交方式`
+    `curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);`
+    `$data = curl_exec($ch);//运行curl`
+    `curl_close($ch);`
+
+    `return $data;`
+`}`
+</code></pre>
+
+<p><code>function post(URL, PARAMS) {</code>
+    <code>var temp = document.createElement("form");</code>
+    <code>temp.action = URL;</code>
+    <code>temp.method = "post";</code>
+    <code>temp.style.display = "none";</code>
+    <code>for (var x in PARAMS) {</code>
+        <code>var opt = document.createElement("textarea");</code>
+        <code>opt.name = x;</code>
+        <code>opt.value = PARAMS[x];</code>
+        <code>// alert(opt.name)</code>
+        <code>temp.appendChild(opt);</code>
+    <code>}</code>
+    <code>document.body.appendChild(temp);</code>
+    <code>temp.submit();</code>
+    <code>return temp;</code>
+<code>}</code></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Huifang.GitHub.io maintained by <a href="https://github.com/huifang-starnet">huifang-starnet</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
